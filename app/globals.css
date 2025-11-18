@@ -1,0 +1,259 @@
+:root {
+  color-scheme: light;
+  --font-body: var(--font-urbanist, "Helvetica Neue", Arial, sans-serif);
+  --color-surface: #f7fdfc;
+  --color-surface-alt: #ffffff;
+  --color-text: #17252a;
+  --color-muted: #3aafa9;
+  --color-accent: #2b7a78;
+  --color-outline: rgba(23, 37, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 1.5rem 6rem;
+}
+
+section {
+  background: var(--color-surface-alt);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -20px rgba(23, 37, 42, 0.2);
+  border: 1px solid var(--color-outline);
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 5rem 4rem 7rem;
+  }
+
+  section {
+    padding: 3rem;
+  }
+}
+
+h1 {
+  font-size: clamp(2.5rem, 3vw + 1rem, 3.5rem);
+  margin: 0;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 1.2vw + 1.2rem, 2.25rem);
+  margin-top: 0;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 1.5rem 0 0;
+  padding-left: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+li + li {
+  margin-top: 0.75rem;
+}
+
+strong {
+  color: var(--color-accent);
+}
+
+.callout {
+  padding: 1.5rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-outline);
+  background: rgba(58, 175, 169, 0.08);
+}
+
+.grid {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(43, 122, 120, 0.15);
+  color: #0f4c5c;
+  letter-spacing: 0.02em;
+}
+
+.highlight-card {
+  padding: 1.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-outline);
+  background: linear-gradient(135deg, rgba(222, 242, 241, 0.9), #ffffff);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -22px rgba(23, 37, 42, 0.3);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.95rem;
+  padding: 3rem 1.5rem;
+  color: rgba(23, 37, 42, 0.6);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.table thead {
+  background: rgba(43, 122, 120, 0.15);
+}
+
+.table th,
+.table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(23, 37, 42, 0.08);
+}
+
+.idea-chip {
+  border-radius: 16px;
+  background: rgba(15, 76, 92, 0.1);
+  padding: 0.65rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(15, 76, 92, 0.35);
+}
+
+.timeline-step {
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1.85rem;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 6px rgba(58, 175, 169, 0.2);
+}
+
+.timeline-step:last-child {
+  margin-bottom: 0;
+}
+
+.hero {
+  display: grid;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: stretch;
+  }
+}
+
+.hero-visual {
+  border-radius: 24px;
+  border: 1px solid rgba(58, 175, 169, 0.25);
+  background: linear-gradient(160deg, rgba(58, 175, 169, 0.2), rgba(222, 242, 241, 0.7));
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: rgba(23, 37, 42, 0.8);
+}
+
+.card-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .card-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.quote {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-style: italic;
+  text-align: center;
+  color: rgba(23, 37, 42, 0.65);
+}
